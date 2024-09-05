@@ -380,18 +380,18 @@ function App() {
       <div className="header">
         <div>
           <button onClick={addLamp}>
-            <img src="/public/lamp-on.png" />
+            <img src="/logic-gates-lab/lamp-on.png" />
           </button>
           <button onClick={addButton}>
-            <img src="src/assets/button-off.png" />
+            <img src="/logic-gates-lab/button-off.png" />
           </button>
           <button onClick={() => toggleOverlayMenu(!isOverlay)}>
-            <img src="src/assets/compression.png" />
+            <img src="/logic-gates-lab/compression.png" />
           </button>
         </div>
         <div>
           <button onClick={() => toggleGrid(!isGrid)}>
-            <img src="src/assets/grid.png" />
+            <img src="/logic-gates-lab/grid.png" />
           </button>
         </div>
       </div>

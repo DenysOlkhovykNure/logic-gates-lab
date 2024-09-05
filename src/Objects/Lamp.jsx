@@ -34,8 +34,8 @@ const Lamp = ({
   useEffect(() => {
     const imgElement = new Image();
     const imgSrc = readState(id, links, connectors[0]?.id)
-      ? "src/assets/lamp-on.png"
-      : "src/assets/lamp-off.png";
+      ? "/logic-gates-lab/lamp-on.png"
+      : "/logic-gates-lab/lamp-off.png";
     imgElement.src = imgSrc;
     imgElement.onload = () => {
       setImageSize({
@@ -46,8 +46,8 @@ const Lamp = ({
   }, [id, links, connectors]);
 
   const imgSrc = readState(id, links, connectors[0]?.id)
-    ? "src/assets/lamp-on.png"
-    : "src/assets/lamp-off.png";
+    ? "/logic-gates-lab/lamp-on.png"
+    : "/logic-gates-lab/lamp-off.png";
 
   const mouseDown = (e, draggableRef, setPosition, position) => {
     if (e.button === 0) {

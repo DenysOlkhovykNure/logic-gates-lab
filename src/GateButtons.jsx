@@ -19,15 +19,15 @@ export const formula = [
 //"(NOT((v0)OR(NOT((o3)OR(v1)))))OR(NOT((NOT((v0)OR(o3)))OR(v1)))"
 
 export const img = [
-  "src/assets/and 2-1.png",
-  "src/assets/or 2-1.png",
-  "src/assets/not 1-1.png",
-  "src/assets/buffer 1-1.png",
-  "src/assets/xor 2-1.png",
-  "src/assets/nor 2-1.png",
-  "src/assets/nand 2-1.png",
-  "src/assets/rs trigger 2-2.png",
-  "src/assets/sum 3-2.png",
+  "/logic-gates-lab/and 2-1.png",
+  "/logic-gates-lab/or 2-1.png",
+  "/logic-gates-lab/not 1-1.png",
+  "/logic-gates-lab/buffer 1-1.png",
+  "/logic-gates-lab/xor 2-1.png",
+  "/logic-gates-lab/nor 2-1.png",
+  "/logic-gates-lab/nand 2-1.png",
+  "/logic-gates-lab/rs trigger 2-2.png",
+  "/logic-gates-lab/sum 3-2.png",
 ];
 
 export const connectors = [

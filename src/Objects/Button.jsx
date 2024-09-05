@@ -36,8 +36,8 @@ const Button = ({
   useEffect(() => {
     const imgElement = new Image();
     const imgSrc = readState(id, links, connectors[0]?.id)
-      ? "src/assets/button-on.png"
-      : "src/assets/button-off.png";
+      ? "/logic-gates-lab/button-on.png"
+      : "/logic-gates-lab/button-off.png";
     imgElement.src = imgSrc;
     imgElement.onload = () => {
       setImageSize({
@@ -79,8 +79,8 @@ const Button = ({
   };
 
   const imgSrc = readState(id, links, connectors[0]?.id)
-    ? "src/assets/button-on.png"
-    : "src/assets/button-off.png";
+    ? "/logic-gates-lab/button-on.png"
+    : "/logic-gates-lab/button-off.png";
 
   return (
     <div

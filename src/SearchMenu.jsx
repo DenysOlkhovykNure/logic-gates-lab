@@ -50,10 +50,10 @@ const SearchMenu = ({ setSearchingMask }) => {
       </div>
       <div>
         <button onClick={handleSearch}>
-          <img src="src/assets/find.png" />
+          <img src="/logic-gates-lab/find.png" />
         </button>
         <button onClick={reset}>
-          <img src="src/assets/reset.png" />
+          <img src="/logic-gates-lab/reset.png" />
         </button>
       </div>
     </div>

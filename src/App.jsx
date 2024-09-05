@@ -380,11 +380,11 @@ function App() {
       <div className="header">
         <div>
           <button onClick={addLamp}>
-            <img src="public\lamp-on.png" />
+            <img src="/public/lamp-on.png" />
           </button>
-          {/* <button onClick={addButton}>
+          <button onClick={addButton}>
             <img src="src/assets/button-off.png" />
-          </button> */}
+          </button>
           <button onClick={() => toggleOverlayMenu(!isOverlay)}>
             <img src="src/assets/compression.png" />
           </button>

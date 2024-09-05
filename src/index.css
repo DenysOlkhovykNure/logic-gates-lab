@@ -1,0 +1,384 @@
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.menu {
+  background: white;
+  width: 600px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+}
+
+.menu button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu button:hover {
+  background-color: #0056b3;
+}
+
+.menu .input-group {
+  padding-left: 15px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
+}
+
+.menu .input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.menu .input-group input {
+  width: 80%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.menu .input,
+.menu .output {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  display: block;
+  opacity: 0.7;
+}
+
+.menu .input {
+  background-color: green;
+}
+
+.menu .output {
+  background-color: red;
+}
+
+.menu .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu .header {
+  background-color: #f0f0f0;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.menu .gateField
+{
+  display: flex;
+  height: 100%;
+}
+
+.menu .content {
+  background-color: #f0f0f0;
+  width: calc(100% - 200px);
+  position:relative;
+  margin-left: 10px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.menu  .image-container {
+  position: relative;
+}
+
+.menu  .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit:scale-down;  
+}
+
+.menu .sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 200px;
+  min-height: 100px;
+  max-height: 280px;
+  margin-left: 0px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.menu .sidebar .connector-input {
+  width: 80%;
+  background-color: #d9dfe6;
+  padding: 3px;
+  color: black;
+  border-radius: 5px;
+  border: 3px solid green;
+  cursor: pointer;
+  margin-bottom: 1px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu .sidebar .connector-output {
+  width: 80%;
+  background-color: #d9dfe6;
+  padding: 3px;
+  color: black;
+  border-radius: 5px;
+  border: 3px solid red;
+  cursor: pointer;
+  margin-bottom: 1px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.input-number {
+  background-color: #ffffff;
+  border-radius: 6px;
+  pointer-events: all;
+  box-sizing:content-box;
+}
+
+.input-number::-webkit-outer-spin-button,
+.input-number::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.input-number:hover::-webkit-inner-spin-button,
+.input-number:hover::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+
+
+
+
+
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns:auto 3.5fr;
+  grid-template-rows: 1fr 20fr;
+  height: 97vh;
+}
+
+.search-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background-color: #282c34;
+  margin-left: 20px;
+  margin-top: 10px;
+  padding-top: 1px;
+  width: 190px;
+  border-top-left-radius: 6px;
+}
+
+.search-menu button
+{
+  margin-left: -10px;
+  margin-right: 10px;
+  height: 30px;
+}
+
+.search-menu button img
+{
+  height: 10px;
+}
+
+.search-field {
+  font-size: 0.9em;
+  width: 80%;
+  padding: 2.1px;
+  margin-left: 15px;
+  color: rgb(249, 249, 249);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.search-field label {
+  display: block;
+  font-weight: bold;
+}
+
+.search-field input {
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #282c34;
+  margin-top: 10px;
+  padding: 10px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.header button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.header button img{
+  height: 42px;
+}
+
+.sidebar {
+  width: 190px;
+  height: 99%;
+  background-color: #282c34;
+  margin-left: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.sidebar button {
+  display: block;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 10px;
+  margin: 5px;
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+.sidebar button .characteristics
+{
+  display: none;
+}
+
+.sidebar button:hover .characteristics
+{
+  font-size: 0.8em;
+  color: #555;
+  display: block;
+}
+
+.sidebar .highlighted-button
+{
+  background-color: rgb(250, 250, 128);
+}
+
+.sidebar img {
+  max-width: 130px;
+}
+
+.content {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  outline: none;
+}
+
+.content-grid {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  background-image: 
+     linear-gradient(to right, #000 1px, transparent 1px),
+     linear-gradient(to bottom, #000 1px, transparent 1px);
+  background-size: 20px 20px; /* Розмір клітинки */
+  background-color: #fff; /* Колір фону */
+  outline: none;
+}
+
+.object {
+  position: absolute;
+  cursor: grab;
+}
+
+.object-image {      
+  width: 100%; /* 100% розміру об'єкта */
+  height: 100%;
+  object-fit: scale-down;
+  pointer-events:none;
+  user-select: none; /* Забороняє виділення */
+  -webkit-user-drag: none; /* Забороняє перетягування у WebKit-браузерах */
+  z-index: -100;
+  
+}
+
+.object-image.glow {  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -99;
+  filter:  drop-shadow(0 0 5px rgba(67, 193, 235));
+  -webkit-filter:  drop-shadow(0 0 5px rgb(67, 193, 235));
+  pointer-events: none;
+  user-select: none; /* Забороняє виділення */
+  -webkit-user-drag: none; /* Забороняє перетягування у WebKit-браузерах */
+  opacity:1;
+}
+
+
+
+.object .input,
+.object .output {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  display: none;
+  opacity: 0.7;
+}
+
+.object .input {
+  background-color: green;
+}
+
+.object .output {
+  background-color: red;
+}
+
+.object:hover .input,
+.object:hover .output {
+  display: block;
+}
+
+
+.line-container {
+  position:relative;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}

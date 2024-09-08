@@ -20,12 +20,12 @@
 
 1. Клонувати репозиторій:
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
+    git clone https://github.com/DenysOlkhovykNure/logic-gates-lab.git
     ```
 
 2. Перейти в директорію проєкту:
     ```bash
-    cd your-repo-name
+    cd logic-gates-lab
     ```
 
 3. Встановити залежності:

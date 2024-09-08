@@ -2,6 +2,16 @@
 
 Цей проєкт створено з використанням [Vite](https://vitejs.dev/) та [React](https://reactjs.org/). Це мінімальне налаштування для початку роботи з React у Vite з підтримкою Hot Module Replacement (HMR) та базовими правилами ESLint.
 
+## Demo
+
+Переглянути робочу версію проєкту можна за посиланням:
+
+[Logic Gates Lab](https://denysolkhovyknure.github.io/logic-gates-lab/)
+
+Ось приклад логічних схем, які можна симулювати в цьому проєкті:
+
+![Логічна схема](./public/and 2-1.png)
+
 ## Використовувані технології
 
 - [Vite](https://vitejs.dev/) – швидкий frontend-білдер.

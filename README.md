@@ -50,20 +50,6 @@
 - `npm run preview` – попередній перегляд білду.
 - `npm run lint` – запуск ESLint для перевірки коду.
 
-## Вибір плагіна для Fast Refresh
-
-- Для використання Babel, проєкт вже налаштований з плагіном `@vitejs/plugin-react`. Це рекомендується, якщо ти звик працювати з Babel.
-- Якщо хочеш використовувати [SWC](https://swc.rs/) для більш швидкої компіляції, можеш замінити плагін `@vitejs/plugin-react` на `@vitejs/plugin-react-swc` в конфігураційному файлі Vite (`vite.config.js`):
-
-    ```js
-    import { defineConfig } from 'vite';
-    import react from '@vitejs/plugin-react-swc'; // Заміни @vitejs/plugin-react на @vitejs/plugin-react-swc
-
-    export default defineConfig({
-      plugins: [react()],
-    });
-    ```
-
 ## Вимоги
 
 - Node.js v14 або вище

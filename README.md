@@ -8,10 +8,6 @@
 
 [Logic Gates Lab](https://denysolkhovyknure.github.io/logic-gates-lab/)
 
-Ось приклад логічних схем, які можна симулювати в цьому проєкті:
-
-![Логічна схема](./public/and_2-1.png)
-
 ## Використовувані технології
 
 - [Vite](https://vitejs.dev/) – швидкий frontend-білдер.

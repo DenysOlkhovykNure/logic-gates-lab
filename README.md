@@ -4,6 +4,9 @@
 
 ## Demo
 
+![image](https://github.com/user-attachments/assets/109c783b-72bf-4630-9ba1-c479fe06687f)
+
+
 Переглянути робочу версію проєкту можна за посиланням:
 
 [Logic Gates Lab](https://denysolkhovyknure.github.io/logic-gates-lab/)

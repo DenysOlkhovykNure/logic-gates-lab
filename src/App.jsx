@@ -25,6 +25,8 @@ let contentClass = "content";
 // Types Button and lamps
 // Colors settings
 
+// Fix Selection while Grid is on
+
 function App() {
   const contentRef = useRef(null);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });

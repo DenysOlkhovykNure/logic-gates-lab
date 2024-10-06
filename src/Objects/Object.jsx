@@ -3,6 +3,7 @@ let isConnector = false;
 let isStart = true;
 let startConnectorType = 0;
 let linkId = 0;
+let lastPosition = null; // Зберігатиме останню позицію для оновлення
 
 export const increaseLinkId = () => {
   const copy = linkId;

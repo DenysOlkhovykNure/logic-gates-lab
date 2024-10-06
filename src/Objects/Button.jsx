@@ -82,6 +82,10 @@ const Button = ({
     ? "/logic-gates-lab/button-on.png"
     : "/logic-gates-lab/button-off.png";
 
+  const handleDrag = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div
       ref={draggableRef}
@@ -109,8 +113,10 @@ const Button = ({
       }
       onMouseUp={stopDragging}
       onMouseLeave={stopDragging}
+      onDrag={handleDrag}
+      onDragStart={handleDrag}
     >
-      <img src={imgSrc} className={className} draggable="false" />
+      <img src={imgSrc} className={className} draggable="false" style={{ pointerEvents: "none" }} />
       {connectors.map((connector) => (
         <div
           key={connector.id}

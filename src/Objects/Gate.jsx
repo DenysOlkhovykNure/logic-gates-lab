@@ -102,6 +102,10 @@ const Gate = ({
     height: `${imageSize.height * 0.4}px`,
   };
 
+  const handleDrag = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div
       ref={draggableRef}
@@ -129,8 +133,10 @@ const Gate = ({
       }
       onMouseUp={stopDragging}
       onMouseLeave={stopDragging}
+      onDrag={handleDrag}
+      onDragStart={handleDrag}
     >
-      <img src={img} className={className} draggable="false" />
+      <img src={img} className={className} draggable="false" style={{ pointerEvents: "none" }} />
       {connectors.map((connector) => (
         <div
           key={connector.id}

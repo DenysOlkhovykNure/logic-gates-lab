@@ -68,6 +68,10 @@ const Lamp = ({
     height: `${imageSize.height * 0.4}px`,
   };
 
+  const handleDrag = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div
       ref={draggableRef}
@@ -95,8 +99,10 @@ const Lamp = ({
       }
       onMouseUp={stopDragging}
       onMouseLeave={stopDragging}
+      onDrag={handleDrag}
+      onDragStart={handleDrag}
     >
-      <img src={imgSrc} className={className} draggable="false" />
+      <img src={imgSrc} className={className} draggable="false" style={{ pointerEvents: "none" }} />
       {connectors.map((connector) => (
         <div
           key={connector.id}

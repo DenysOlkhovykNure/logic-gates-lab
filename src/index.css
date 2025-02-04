@@ -44,7 +44,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 .menu .input-group label {
@@ -91,8 +91,7 @@
   margin-right: 10px;
 }
 
-.menu .gateField
-{
+.menu .gateField {
   display: flex;
   height: 100%;
 }
@@ -100,23 +99,23 @@
 .menu .content {
   background-color: #f0f0f0;
   width: calc(100% - 200px);
-  position:relative;
+  position: relative;
   margin-left: 10px;
   margin-bottom: 0px;
   margin-right: 10px;
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
 }
 
-.menu  .image-container {
+.menu .image-container {
   position: relative;
 }
 
-.menu  .image-container img {
+.menu .image-container img {
   width: 100%;
   height: 100%;
-  object-fit:scale-down;  
+  object-fit: scale-down;
 }
 
 .menu .sidebar {
@@ -162,7 +161,7 @@
   background-color: #ffffff;
   border-radius: 6px;
   pointer-events: all;
-  box-sizing:content-box;
+  box-sizing: content-box;
 }
 
 .input-number::-webkit-outer-spin-button,
@@ -175,17 +174,9 @@
   -webkit-appearance: none;
 }
 
-
-
-
-
-
-
-
-
 .grid-container {
   display: grid;
-  grid-template-columns:auto 3.5fr;
+  grid-template-columns: auto 3.5fr;
   grid-template-rows: 1fr 20fr;
   height: 97vh;
 }
@@ -203,15 +194,13 @@
   border-top-left-radius: 6px;
 }
 
-.search-menu button
-{
+.search-menu button {
   margin-left: -10px;
   margin-right: 10px;
   height: 30px;
 }
 
-.search-menu button img
-{
+.search-menu button img {
   height: 10px;
 }
 
@@ -255,7 +244,7 @@
   margin-left: 10px;
 }
 
-.header button img{
+.header button img {
   height: 42px;
 }
 
@@ -272,6 +261,53 @@
   border-bottom-right-radius: 6px;
 }
 
+.loader {
+  margin-top: 35vh;
+  width: 65px;
+  aspect-ratio: 1;
+  position: relative;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  border-radius: 50px;
+  box-shadow: 0 0 0 3px inset #fff;
+  animation: l4 2.5s infinite;
+}
+.loader:after {
+  animation-delay: -1.25s;
+}
+@keyframes l4 {
+  0% {
+    inset: 0 35px 35px 0;
+  }
+  12.5% {
+    inset: 0 35px 0 0;
+  }
+  25% {
+    inset: 35px 35px 0 0;
+  }
+  37.5% {
+    inset: 35px 0 0 0;
+  }
+  50% {
+    inset: 35px 0 0 35px;
+  }
+  62.5% {
+    inset: 0 0 0 35px;
+  }
+  75% {
+    inset: 0 0 35px 35px;
+  }
+  87.5% {
+    inset: 0 0 35px 0;
+  }
+  100% {
+    inset: 0 35px 35px 0;
+  }
+}
+
 .sidebar button {
   display: block;
   border-radius: 8px;
@@ -282,20 +318,17 @@
   border: 1px solid #ddd;
 }
 
-.sidebar button .characteristics
-{
+.sidebar button .characteristics {
   display: none;
 }
 
-.sidebar button:hover .characteristics
-{
+.sidebar button:hover .characteristics {
   font-size: 0.8em;
   color: #555;
   display: block;
 }
 
-.sidebar .highlighted-button
-{
+.sidebar .highlighted-button {
   background-color: rgb(250, 250, 128);
 }
 
@@ -312,9 +345,8 @@
 .content-grid {
   margin-bottom: 10px;
   margin-right: 10px;
-  background-image: 
-     linear-gradient(to right, #000 1px, transparent 1px),
-     linear-gradient(to bottom, #000 1px, transparent 1px);
+  background-image: linear-gradient(to right, #000 1px, transparent 1px),
+    linear-gradient(to bottom, #000 1px, transparent 1px);
   background-size: 20px 20px; /* Розмір клітинки */
   background-color: #fff; /* Колір фону */
   outline: none;
@@ -325,33 +357,30 @@
   cursor: grab;
 }
 
-.object-image {      
+.object-image {
   width: 100%; /* 100% розміру об'єкта */
   height: 100%;
   object-fit: scale-down;
-  pointer-events:none;
+  pointer-events: none;
   user-select: none; /* Забороняє виділення */
   -webkit-user-drag: none; /* Забороняє перетягування у WebKit-браузерах */
   z-index: -100;
-  
 }
 
-.object-image.glow {  
+.object-image.glow {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -99;
-  filter:  drop-shadow(0 0 5px rgba(67, 193, 235));
-  -webkit-filter:  drop-shadow(0 0 5px rgb(67, 193, 235));
+  filter: drop-shadow(0 0 5px rgba(67, 193, 235));
+  -webkit-filter: drop-shadow(0 0 5px rgb(67, 193, 235));
   pointer-events: none;
   user-select: none; /* Забороняє виділення */
   -webkit-user-drag: none; /* Забороняє перетягування у WebKit-браузерах */
-  opacity:1;
+  opacity: 1;
 }
-
-
 
 .object .input,
 .object .output {
@@ -375,9 +404,8 @@
   display: block;
 }
 
-
 .line-container {
-  position:relative;
+  position: relative;
   width: 100%;
   height: 100%;
   pointer-events: none;

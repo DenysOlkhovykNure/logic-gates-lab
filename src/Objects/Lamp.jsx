@@ -49,6 +49,11 @@ const Lamp = ({
     ? "/logic-gates-lab/lamp-on.png"
     : "/logic-gates-lab/lamp-off.png";
 
+  const objectSize = {
+    width: imageSize.width * 0.4,
+    height: imageSize.height * 0.4,
+  };
+
   const mouseDown = (e, draggableRef, setPosition, position) => {
     if (e.button === 0) {
       startDragging(e, draggableRef, setPosition, position);
@@ -63,11 +68,6 @@ const Lamp = ({
     className = "object-image glow";
   }
 
-  const objectSize = {
-    width: `${imageSize.width * 0.4}px`,
-    height: `${imageSize.height * 0.4}px`,
-  };
-
   const handleDrag = (event) => {
     event.preventDefault();
   };
@@ -79,8 +79,8 @@ const Lamp = ({
       style={{
         top: `${position.top}px`,
         left: `${position.left}px`,
-        width: objectSize.width,
-        height: objectSize.height,
+        width: `${objectSize.width}px`,
+        height: `${objectSize.height}px`,
       }}
       onMouseDown={(e) => mouseDown(e, draggableRef, setPosition, position)}
       onMouseMove={(e) =>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { formula, img, connectors, highlight, names } from "./GateButtons";
+import { saveImgToGoogleDrive, saveTxtToGoogleDrive } from "./GoogleDriveSaving";
 
 const Overlay = ({
   isOverlay,
@@ -83,7 +84,7 @@ const Overlay = ({
     });
   };
 
-  const Create = () => {
+  async function Create() {
     let replacementMap = {};
     let finalFormula = newFormula.map((formula) =>
       replaceInFormula(formula, replacementMap, /b(\d)/g, `v${Object.keys(replacementMap).length}`)
@@ -96,14 +97,14 @@ const Overlay = ({
 
     formula.push(finalFormula);
     img.push(image);
-    console.log(settingsСonnectors);
+    //console.log(settingsСonnectors);
     connectors.push(
       settingsСonnectors.map((connector) => ({
         ...connector,
         top: connector.top - 1,
       }))
     );
-    console.log(settingsСonnectors);
+    //console.log(settingsСonnectors);
 
     highlight.push(true);
 
@@ -117,7 +118,23 @@ const Overlay = ({
     names.push(newName);
 
     setisOverlay(false);
-  };
+
+    const savedURL = localStorage.getItem("savedURL");
+    if (savedURL) {
+      const gateForGoogleDrive = {
+        name: newName.name,
+        inputs: newName.inputs,
+        outputs: newName.outputs,
+        formula: finalFormula,
+        img: await saveImgToGoogleDrive(image, newName.name), // Очікуємо завантаження кожного зображення
+        connectors: settingsСonnectors.map((connector) => ({
+          ...connector,
+          top: connector.top - 1,
+        })),
+      };
+      saveTxtToGoogleDrive(gateForGoogleDrive);
+    }
+  }
 
   useEffect(() => {
     if (!isOverlay) {

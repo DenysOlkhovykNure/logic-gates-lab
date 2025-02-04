@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import "./App.css";
+import SaveMenu from "./SaveMenu";
 import Overlay from "./Overlay";
 import GateButtons from "./GateButtons";
 import SearchMenu from "./SearchMenu";
@@ -49,6 +50,7 @@ function App() {
   const [searchingMask, setSearchingMask] = useState({ name: "", inputs: 0, outputs: 0 });
   const [isOverlay, setisOverlay] = useState(false);
   const [isGrid, setisGrid] = useState(false);
+  const [isSaveMenu, setisSaveMenu] = useState(false);
 
   const addButton = () => {
     const connectors = [{ id: 1, type: "output", top: 33, left: 31 }];
@@ -230,6 +232,10 @@ function App() {
     formula = generateFormula(gates, lamps, buttons, links);
   };
 
+  const toggleisSaveMenu = (value) => {
+    setisSaveMenu(value);
+  };
+
   const toggleGrid = (value) => {
     if (isGrid) {
       contentClass = "content";
@@ -392,6 +398,9 @@ function App() {
           </button>
         </div>
         <div>
+          <button onClick={() => toggleisSaveMenu(!isSaveMenu)}>
+            <img src="/logic-gates-lab/save.png" />
+          </button>
           <button onClick={() => toggleGrid(!isGrid)}>
             <img src="/logic-gates-lab/grid.png" />
           </button>
@@ -497,6 +506,9 @@ function App() {
           buttons={buttons}
           links={links}
         />
+      </div>
+      <div className="Overlay">
+        <SaveMenu isSaveMenu={isSaveMenu} setisSaveMenu={setisSaveMenu} />
       </div>
     </div>
   );

@@ -4,18 +4,22 @@ import { saveImgToGoogleDrive, saveTxtToGoogleDrive } from "./GoogleDriveSaving"
 
 const SaveMenu = ({ isSaveMenu, setisSaveMenu }) => {
   const [inputValue, setInputValue] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setInputValue(localStorage.getItem("savedURL"));
   }, []);
 
-  async function handleSave() {
+  async function SaveToLocalStorage() {
     if (inputValue.trim() === "") {
       alert("Please enter a URL before saving.");
       return;
     }
     localStorage.setItem("savedURL", inputValue);
+  }
 
+  async function SaveToGoogleDrive() {
     try {
       // Паралельно завантажуємо всі зображення
       const gates = await Promise.all(
@@ -37,10 +41,26 @@ const SaveMenu = ({ isSaveMenu, setisSaveMenu }) => {
       console.error("Error during parallel upload:", error);
       alert("An error occurred. See console for details.");
     }
+    setisSaveMenu(false);
   }
 
-  const handleCancel = () => {
+  async function handleSave() {
+    setIsLoading(true);
+    SaveToLocalStorage();
+    if (isChecked) {
+      await SaveToGoogleDrive();
+    }
+    setisSaveMenu(false);
+    setIsLoading(false);
+  }
+
+  const handleDelete = () => {
     setInputValue("");
+    setisSaveMenu(false);
+    localStorage.removeItem("savedURL");
+  };
+
+  const handleCancel = () => {
     setisSaveMenu(false);
   };
 
@@ -56,8 +76,24 @@ const SaveMenu = ({ isSaveMenu, setisSaveMenu }) => {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <button onClick={handleSave}>Save</button>
+        <div className="save">
+          <button onClick={handleSave}>Save</button>
+          <label>
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={(e) => setIsChecked(e.target.checked)}
+            />
+            Upload to Google Drive
+          </label>
+        </div>
+        <button onClick={handleDelete}>Delete</button>
         <button onClick={handleCancel}>Cancel</button>
+        {isLoading && (
+          <div className="loader-container">
+            <div className="loader2"></div>
+          </div>
+        )}
       </div>
     </div>
   );

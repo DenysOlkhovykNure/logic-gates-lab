@@ -31,8 +31,22 @@ export async function saveImgToGoogleDrive(name, gateName) {
     "https://script.google.com/macros/s/AKfycbzoi8w9JJHmQqDkuO4oIDYDPk9Wv2POMtkr6ZlJ5ylonssx5RPMwBG0mXHTlWkOUw49cw/exec";
   const match = localStorage.getItem("savedURL").match(/\/folders\/([^/?]+)/);
   const folderId = match ? match[1] : null;
+
+  const isUrl = (str) => {
+    try {
+      new URL(str);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  };
+
   if (folderId !== null) {
     try {
+      if (isUrl(name)) {
+        return name;
+      }
+
       // Завантажуємо зображення як Blob
       const response = await fetch(name);
       if (!response.ok) {

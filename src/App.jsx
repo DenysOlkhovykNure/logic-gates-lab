@@ -108,22 +108,40 @@ function App() {
             );
 
             if (!existingLink) {
-              onConnectorClick(
-                other.id,
-                other.connectorId + 1,
-                { top: other.baseY, left: other.baseX },
-                other.connectors,
-                links,
-                setLinks
-              );
-              onConnectorClick(
-                obj.id,
-                index + 1,
-                { top: pos.top, left: pos.left },
-                obj.connectors,
-                links,
-                setLinks
-              );
+              const linkId1 = `${other.id}-${other.connectorId + 1}-${obj.id}-${index + 1}`;
+              const linkId2 = `${obj.id}-${index + 1}-${other.id}-${other.connectorId + 1}`;
+
+              setLinks((prevLinks) => {
+                const newLinks = [...prevLinks];
+
+                const adjustedX1 = other.baseX + other.connectors[other.connectorId].left - 209;
+                const adjustedY1 = other.baseY + other.connectors[other.connectorId].top - 77;
+
+                const adjustedX2 = pos.left + obj.connectors[index].left - 209;
+                const adjustedY2 = pos.top + obj.connectors[index].top - 77;
+
+                newLinks.push({
+                  id: linkId1, // Додаємо унікальний id
+                  idObject1: other.id,
+                  idConnector1: other.connectorId + 1,
+                  idObject2: obj.id,
+                  idConnector2: index + 1,
+                  coordinates: { x: [adjustedX1, adjustedX2], y: [adjustedY1, adjustedY2] },
+                  state: false,
+                });
+
+                newLinks.push({
+                  id: linkId2, // Додаємо унікальний id
+                  idObject1: obj.id,
+                  idConnector1: index + 1,
+                  idObject2: other.id,
+                  idConnector2: other.connectorId + 1,
+                  coordinates: { x: [adjustedX2, adjustedX1], y: [adjustedY2, adjustedY1] },
+                  state: false,
+                });
+
+                return newLinks;
+              });
             }
 
             foundOverlap = true;

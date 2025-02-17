@@ -168,7 +168,6 @@ export const addJoint = (e, isGrid) => {
 export const onConnectorClick = (id, idConnector, position, connectors, links, setLinks) => {
   isConnector = true;
   const connector = connectors[idConnector - 1];
-  console.log(JSON.stringify(newLink));
   const hasInputConnection = links.some(
     (link) =>
       (link.idObject2 === id && link.idConnector2 === idConnector) ||
@@ -181,14 +180,11 @@ export const onConnectorClick = (id, idConnector, position, connectors, links, s
     }
     return;
   }
-  console.log(JSON.stringify(newLink));
   if (isStart) {
     newLink.coordinates.x.push(position.left + connector.left - 209);
     newLink.coordinates.y.push(position.top + connector.top - 77);
     newLink.idObject1 = id;
     newLink.idConnector1 = idConnector;
-
-    console.log(JSON.stringify(newLink));
 
     isStart = false;
     startConnectorType = connector.type;
@@ -196,8 +192,6 @@ export const onConnectorClick = (id, idConnector, position, connectors, links, s
     setLinks([...links, newLink]);
   } else {
     if (newLink.idObject1 !== id) {
-      console.log(JSON.stringify(newLink));
-
       // Checking that the object is not the same
       if (startConnectorType === connector.type) {
         // Checking that the connectors are not the same type
@@ -205,16 +199,12 @@ export const onConnectorClick = (id, idConnector, position, connectors, links, s
         return;
       }
 
-      console.log(JSON.stringify(newLink));
-
       newLink.coordinates.x[newLink.coordinates.x.length - 1] =
         position.left + connector.left - 209;
       newLink.coordinates.y[newLink.coordinates.y.length - 1] = position.top + connector.top - 77;
 
       newLink.idObject2 = id;
       newLink.idConnector2 = idConnector;
-
-      console.log(JSON.stringify(newLink));
 
       // Remove any duplicate links
       const updatedLinks = links.filter(

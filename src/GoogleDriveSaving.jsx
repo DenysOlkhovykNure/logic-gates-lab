@@ -34,8 +34,8 @@ export async function saveImgToGoogleDrive(name, gateName) {
 
   const isUrl = (str) => {
     try {
-      new URL(str);
-      return true;
+      const url = new URL(str);
+      return url.protocol === "http:" || url.protocol === "https:";
     } catch (_) {
       return false;
     }
@@ -43,6 +43,7 @@ export async function saveImgToGoogleDrive(name, gateName) {
 
   if (folderId !== null) {
     try {
+      console.log(name);
       if (isUrl(name)) {
         return name;
       }

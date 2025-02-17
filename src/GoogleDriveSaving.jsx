@@ -43,7 +43,6 @@ export async function saveImgToGoogleDrive(name, gateName) {
 
   if (folderId !== null) {
     try {
-      console.log(name);
       if (isUrl(name)) {
         return name;
       }

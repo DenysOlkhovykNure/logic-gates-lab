@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./App.css";
 import SaveMenu from "./SaveMenu";
 import Overlay from "./Overlay";
@@ -397,6 +397,133 @@ function App() {
       setLinks((prevLinks) => [...prevLinks, ...selectedLinks]);
     }
   };
+
+  useEffect(() => {
+    const savedData = localStorage.getItem("savedData");
+
+    if (savedData) {
+      const copyData = JSON.parse(savedData).key;
+      let id = ObjectId;
+
+      const newButtons = [];
+      const newGates = [];
+      const newLamps = [];
+
+      const copyElements = copyData.elements;
+
+      copyElements.forEach((element) => {
+        switch (element.type) {
+          case "button":
+            newButtons.push({
+              id: id,
+              connectors: element.connectors,
+              isSelected: false,
+              position: {
+                top: element.position.top,
+                left: element.position.left,
+              },
+            });
+            id++;
+            break;
+
+          case "gate":
+            newGates.push({
+              id: id,
+              connectors: element.connectors,
+              formula: element.formula,
+              img: element.img,
+              isSelected: false,
+              position: {
+                top: element.position.top,
+                left: element.position.left,
+              },
+            });
+            id++;
+            break;
+
+          case "lamp":
+            newLamps.push({
+              id: id,
+              connectors: element.connectors,
+              isSelected: false,
+              position: {
+                top: element.position.top,
+                left: element.position.left,
+              },
+            });
+            id++;
+            break;
+
+          default:
+            console.log("Unknown element type:", element.type);
+            break;
+        }
+      });
+
+      setButtons((prev) => [...prev, ...newButtons]);
+      setGates((prev) => [...prev, ...newGates]);
+      setLamps((prev) => [...prev, ...newLamps]);
+      setObjectId(id);
+
+      const selectedIds = copyElements.map((element) => element.id);
+      const selectedLinks = copyData.links.map((link) => ({
+        ...link,
+        id: id++,
+        idObject1: ObjectId + selectedIds.indexOf(link.idObject1),
+        idObject2: ObjectId + selectedIds.indexOf(link.idObject2),
+        coordinates: {
+          x: link.coordinates.x.map((x) => x),
+          y: link.coordinates.y.map((y) => y),
+        },
+      }));
+      setLinks((prevLinks) => [...prevLinks, ...selectedLinks]);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      const selectedElements = [
+        ...buttons.map((button) => ({
+          ...button,
+          type: "button",
+          position: {
+            top: getPositionButton(button.id).top,
+            left: getPositionButton(button.id).left,
+          },
+        })),
+        ...gates.map((gate) => ({
+          ...gate,
+          type: "gate",
+          position: {
+            top: getPositionGate(gate.id).top,
+            left: getPositionGate(gate.id).left,
+          },
+        })),
+        ...lamps.map((lamp) => ({
+          ...lamp,
+          type: "lamp",
+          position: {
+            top: getPositionLamp(lamp.id).top,
+            left: getPositionLamp(lamp.id).left,
+          },
+        })),
+      ];
+      const selectedLinks = links;
+
+      let savedData = {
+        elements: selectedElements,
+        links: selectedLinks,
+      };
+
+      localStorage.setItem("savedData", JSON.stringify({ key: savedData }));
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [buttons, gates, lamps, links]);
 
   return (
     <div className="grid-container">
